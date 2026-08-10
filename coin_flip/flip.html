@@ -7,33 +7,44 @@
   <body>
     <p>Guess the Coin Flip</p>
     <button onclick="
-    const randomNumber = Math.random();
-    if (randomNumber < 0.5 && randomNumber >= 0) {
-        result = 'Heads';
-    } else if (randomNumber < 1 && randomNumber >= 0.5) {
-        result = 'Tails';
-    }
-
-    if (result === 'Heads') {
-        alert('You guessed Heads! The coin flip was: ' + result + '\nYou win!');
-    } else if (result === 'Tails') {
-        alert('You guessed Heads! The coin flip was: ' + result + '\nYou lose!');
-    }
-    
+    playGame('Heads');
     ">I guess Heads!</button>
 
     <button onclick="
-    const randomNumber2 = Math.random();
-    result = randomNumber < 0.5 ? 'Heads' : 'Tails';
-    outcome = result === 'Tails' ? 'You win!' : 'You lose!';
-    alert('You guessed Tails! The coin flip was: ' + result + '\n' + outcome);
+    playGame('Tails');
     ">I guess Tails!</button>
 
 	  <script>
-      let guess = '';
-      let result = '';
-      let outcome = '';
-    </script>
+				let score = JSON.parse(localStorage.getItem('score')) || {
+					wins:0,
+					losses:0, 
+				}
+
+        let result = '';
+        let outcome = '';
+
+				function playGame(guess) {
+					const randomNumber = Math.random();
+					result = randomNumber < 0.5 ? 'Heads' : 'Tails';
+
+					if(guess === 'Heads'){
+						outcome = result === 'Heads' ? 'You win!' : 'You lose!';
+					}else if(guess === 'Tails'){
+						outcome = result === 'Tails' ? 'You win!' : 'You lose!';
+					}
+
+					if(outcome === 'You win!'){
+						score.wins++;
+					}else{
+						score.losses++;
+					} 
+
+					localStorage.setItem('score', JSON.stringify(score));
+
+					alert(`You guessed ${guess}! The coin flip was: ` + result + '\n' + outcome + '\n\nWins: ' + score.wins + ' Losses: ' + score.losses);					
+
+				}
+      </script>
 
   </body>
 </html>
