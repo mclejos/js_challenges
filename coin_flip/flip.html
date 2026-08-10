@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coin Flip</title>
+	</head>
+
+  <body>
+    <p>Guess the Coin Flip</p>
+    <button onclick="
+    const randomNumber = Math.random();
+    if (randomNumber < 0.5 && randomNumber >= 0) {
+        result = 'Heads';
+    } else if (randomNumber < 1 && randomNumber >= 0.5) {
+        result = 'Tails';
+    }
+
+    if (result === 'Heads') {
+        alert('You guessed Heads! The coin flip was: ' + result + '\nYou win!');
+    } else if (result === 'Tails') {
+        alert('You guessed Heads! The coin flip was: ' + result + '\nYou lose!');
+    }
+    
+    ">I guess Heads!</button>
+
+    <button onclick="
+    const randomNumber = Math.random();
+    result = randomNumber < 0.5 ? 'Heads' : 'Tails';
+    outcome = result === 'Tails' ? 'You win!' : 'You lose!';
+    alert('You guessed Tails! The coin flip was: ' + result + '\n' + outcome);
+    ">I guess Tails!</button>
+
+	  <script>
+      let guess = '';
+      let result = '';
+      let outcome = '';
+    </script>
+
+  </body>
+</html>
