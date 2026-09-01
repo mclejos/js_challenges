@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Challenge</title>
+  </head>
+
+  <body>
+    <button onclick="
+      addToCart();
+      ">Add to cart</button>
+    <p class="js-added"></p>
+
+
+      <script>
+        let intervalId;
+
+        function addToCart(){
+          const message = document.querySelector('.js-added');
+          message.innerHTML = "Added";
+
+          clearInterval(intervalId);
+
+          intervalId = setInterval(function(){
+            message.innerHTML = "";
+
+            clearInterval(intervalId);
+          }, 2000);
+        }
+      </script>
+  </body>
+</html>
