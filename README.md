@@ -14,7 +14,9 @@ A collection of practice projects and challenges focused on building a strong fo
 
 ## 📁 Projects
 
-*Projects will be added here as I complete them.*
+- **Rock, Paper, Scissors Game:** Interactive browser game featuring randomized computer choices, score tracking, dynamic DOM updates, and outcome validation.
+- **Simple Calculator:** Arithmetic calculator implementing core math operations, real-time input parsing, button click listeners, and clear/reset functionality.
+- **Coin Flip Simulator:** Random chance simulator utilizing `Math.random()` to determine heads or tails with dynamic visual feedback and toss history.
 
 ---
 
